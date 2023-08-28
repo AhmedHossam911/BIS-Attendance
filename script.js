@@ -47,6 +47,18 @@
   
   // Generate a random code based on the current date lec1
 {
+  function generateAndStoreRandomCode1() {
+    const storedRandomCode = getCookie('staticRandomCode1');
+    const currentTime = Date.now();
+  
+    if (!storedRandomCode || currentTime - parseInt(getCookie('staticRandomCodeTime1')) >= 180000) {
+      const randomCode = generateRandomCode1();
+      setCookie('staticRandomCode1', randomCode, 1); // Expires in 1 day
+      setCookie('staticRandomCodeTime1', currentTime.toString(), 1); // Expires in 1 day
+      codeElement.textContent = randomCode;
+    }
+  }
+  
   const givenCodes = [
     "1E7LC9E3C21",
     "1L5EC2L9C7E",
@@ -105,15 +117,6 @@
         const storedTime = parseInt(getCookie('staticRandomCodeTime'));
         const currentTime = Date.now();
         
-        // Keep the same code for 3 minutes (180000 milliseconds)
-        if (currentTime - storedTime >= 180000) {
-          const randomCode = generateRandomCode();
-          setCookie('staticRandomCode', randomCode, 1); // Expires in 1 day
-          setCookie('staticRandomCodeTime', currentTime.toString(), 1); // Expires in 1 day
-          codeElement.textContent = randomCode;
-        } else {
-          codeElement.textContent = storedRandomCode;
-        }
       }
     }
   }
@@ -181,15 +184,6 @@
           const storedTime = parseInt(getCookie('staticRandomCodeTime'));
           const currentTime = Date.now();
           
-          // Keep the same code for 3 minutes (180000 milliseconds)
-          if (currentTime - storedTime >= 180000) {
-            const randomCode = generateRandomCode();
-            setCookie('staticRandomCode', randomCode, 1); // Expires in 1 day
-            setCookie('staticRandomCodeTime', currentTime.toString(), 1); // Expires in 1 day
-            codeElement.textContent = randomCode;
-          } else {
-            codeElement.textContent = storedRandomCode;
-          }
         }
       }
     }
@@ -257,15 +251,6 @@
             const storedTime = parseInt(getCookie('staticRandomCodeTime'));
             const currentTime = Date.now();
             
-            // Keep the same code for 3 minutes (180000 milliseconds)
-            if (currentTime - storedTime >= 180000) {
-              const randomCode = generateRandomCode();
-              setCookie('staticRandomCode', randomCode, 1); // Expires in 1 day
-              setCookie('staticRandomCodeTime', currentTime.toString(), 1); // Expires in 1 day
-              codeElement.textContent = randomCode;
-            } else {
-              codeElement.textContent = storedRandomCode;
-            }
           }
         }
       }
@@ -333,15 +318,6 @@
             const storedTime = parseInt(getCookie('staticRandomCodeTime'));
             const currentTime = Date.now();
             
-            // Keep the same code for 3 minutes (180000 milliseconds)
-            if (currentTime - storedTime >= 180000) {
-              const randomCode = generateRandomCode();
-              setCookie('staticRandomCode', randomCode, 1); // Expires in 1 day
-              setCookie('staticRandomCodeTime', currentTime.toString(), 1); // Expires in 1 day
-              codeElement.textContent = randomCode;
-            } else {
-              codeElement.textContent = storedRandomCode;
-            }
           }
         }
       }
