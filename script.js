@@ -1,4 +1,4 @@
-// popups
+// popups script
 {
   document.addEventListener("DOMContentLoaded", function() {
       const openAnnouncementButton = document.getElementById("Lec1button");
