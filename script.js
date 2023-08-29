@@ -119,3 +119,7 @@ document.getElementById("Lec4").style.display = "block";
 } else {
 document.getElementById("DayEnd").style.display = "block";
 }
+
+document.addEventListener('contextmenu', function(e) {
+  e.preventDefault();
+});
